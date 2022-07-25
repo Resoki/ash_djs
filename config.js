@@ -6,7 +6,7 @@ module.exports = {
   guildID: "1001113010431078490", // id server
   ownerID: "923924088077053972", // id du proprietaire du serveur
   embedColor: "#00dbff",
-  embedfooterText: "Famille Petit 2022",
+  embedfooterText: "Ash 2022",
   ticketsSupportRoles: ["960927743367839794"],
   ticketsTranscripts: '978655935503417435',
    
