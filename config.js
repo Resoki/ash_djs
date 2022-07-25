@@ -9,7 +9,6 @@ module.exports = {
   embedfooterText: "Famille Petit 2022",
   ticketsSupportRoles: ["960927743367839794"],
   ticketsTranscripts: '978655935503417435',
-  messagePrivateWhenUserJoin: "Bienvenue sur le serveur Famille Petit !",
    
    channelMessages: "965591382163062894"
 }
