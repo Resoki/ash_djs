@@ -1,5 +1,4 @@
-const { Database } = require("quickmongo");
-const db = new Database("mongodb://localhost/quickmongo");
+const db = require('quick.db')
 
 module.exports = {
   name: "marry",

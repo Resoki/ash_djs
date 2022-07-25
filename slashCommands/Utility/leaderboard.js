@@ -24,6 +24,7 @@ module.exports = {
           if(points){
             await tabLeaderboard.push({
               name: `${element.user.username}#${element.user.discriminator}`,
+              id: element.user.id,
               points: points
             })
 
@@ -35,7 +36,7 @@ module.exports = {
 
       }).then(()=> {
         tabLeaderboard.forEach(async(element, index)=> {
-          yourPointsEmbed.addField(`#${index+1}`, `${element.name} - **${element.points} pts**`)
+          yourPointsEmbed.addField(`#${index+1}`, `<@${element.id}> - **${element.points} pts**`)
         })
       })
         setTimeout(async()=> {
