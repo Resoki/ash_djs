@@ -16,10 +16,6 @@ module.exports = {
 ],
   run: async (client, interaction, args) => {
     try {
-      const permission = interaction.member.permissions.has(client.discord.Permissions.FLAGS.BAN_MEMBERS);
-      
-      if (!permission)
-        return interaction.reply(`❌ | Tu n'as pas la permission d'utiliser cette commande !`);
 
       const user = interaction.options.getUser("user");
 
