@@ -1,4 +1,6 @@
-const db = require('quick.db');
+const { Database } = require("quickmongo");
+const db = new Database("mongodb://localhost/quickmongo");
+
 module.exports = {
   name: "marry",
   aliases: ["bdg"],
@@ -21,7 +23,7 @@ module.exports = {
         return interaction.reply(`Tu ne peux pas te marier avec toi même !`)
       }
 
-      const currentDate = new Date().toLocaleDateString();
+        const currentDate = new Date().toLocaleDateString();
 
         const marryEmbed = new client.discord.MessageEmbed()
         .setTitle(`L'amour c'est magnifique !`)
@@ -44,7 +46,7 @@ module.exports = {
         await interaction.reply({ embeds: [marryEmbed]});
     }
     catch(err){
-      return interaction.channel.send(`❌ | Une erreur a eu lieu **badge.js**:\n${err}`);
+      return interaction.channel.send(`❌ | Une erreur a eu lieu **marry.js**:\n${err}`);
     }
   },
 }

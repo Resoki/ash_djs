@@ -8,9 +8,8 @@ module.exports = {
   ownerOnly: false,
   run: async (client, interaction, args) => {
     try {
-      const user = interaction.options.getUser("user");
-      const marryList =    await db.get('marryList')
-      console.log(marryList)
+      const marryList = await db.get('marryList')
+      if(!marryList) return interaction.reply(`Il n'y a pas de marié(e) sur le serveur !`)
 
         const marryEmbed = new client.discord.MessageEmbed()
         .setTitle(`Info !`)
@@ -19,12 +18,10 @@ module.exports = {
 
         marryList.forEach(async(element, index) => {
             await marryEmbed.addField(`#${index+1}`, `${element.name}, ${element.date}`);
-          });
-    
-        
-        setTimeout(async()=> {
-            await interaction.reply({ embeds: [marryEmbed]});
-        },2000)
+            if(index+1 === marryList.length){
+              await interaction.reply({ embeds: [marryEmbed]});
+            }
+        })
     }
     catch(err){
       return interaction.channel.send(`❌ | Une erreur a eu lieu **badge.js**:\n${err}`);

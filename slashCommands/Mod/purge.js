@@ -27,11 +27,12 @@ module.exports = {
           if (amount > 100 || amount < 1) return interaction.channel.send("Merci de preciser un nombre compris entre 0 et 100 !")
   
           interaction.channel.bulkDelete(amount).catch(err => {
-                interaction.channel.send(':x: Dû à la limitation Discord, Je ne peux pas supprimer les messages de plus de 14 jours.') })
+              interaction.channel.send(':x: Dû à la limitation Discord, Je ne peux pas supprimer les messages de plus de 14 jours.') })
   
-          let msg = await interaction.channel.send(`\`${amount}\` messages supprimés !`)
+          let msg = await interaction.channel.send(`\`${amount}\` messages supprimés !`);
+
           setTimeout(() => {
-              msg.delete()
+              msg.delete();
           }, 2000)
       }
       catch(err) {

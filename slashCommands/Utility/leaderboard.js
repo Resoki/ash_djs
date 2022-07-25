@@ -43,7 +43,7 @@ module.exports = {
         },2200)
     }
     catch(err){
-      return interaction.channel.send(`❌ | Une erreur a eu lieu **showpoints.js**:\n${err}`);
+      return interaction.channel.send(`❌ | Une erreur a eu lieu **leaderboard.js**:\n${err}`);
     }
   },
 };

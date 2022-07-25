@@ -4,7 +4,7 @@ module.exports = {
   aliases: ["bdg"],
   category: "Utility",
   description: "Ajouter des points à un membre",
-  usage: `**/addpoints <numbetr>**`,
+  usage: `**/addpoints <number>**`,
   ownerOnly: false,
   options: [
     {
@@ -32,7 +32,7 @@ module.exports = {
 
         await db.add(`pointsTab_${user.id}`, pointsInte);
 
-        const solde =  await db.get(`pointsTab_${user.id}`)
+        const solde =  await db.get(`pointsTab_${user.id}`);
 
          const addPhraseEmbed = new client.discord.MessageEmbed()
          .setAuthor(`${interaction.member.user.username}#${interaction.member.user.discriminator}`, interaction.member.displayAvatarURL())
@@ -45,7 +45,7 @@ module.exports = {
         await interaction.reply({ embeds: [addPhraseEmbed]});
     }
     catch(err){
-      return interaction.channel.send(`❌ | Une erreur a eu lieu **addphrase.js**:\n${err}`);
+      return interaction.channel.send(`❌ | Une erreur a eu lieu **addpoints.js**:\n${err}`);
     }
   },
 };

@@ -24,7 +24,7 @@ module.exports = {
       const user = interaction.options.getUser("user");
 
       if(!user) {
-        const points = await db.get(`pointsTab_${interaction.member.user.id}`)
+        const points = await db.get(`pointsTab_${interaction.member.user.id}`);
         
         const yourPointsEmbed = new client.discord.MessageEmbed()
         .setTitle(`Tes points`)
@@ -35,7 +35,7 @@ module.exports = {
         return  interaction.reply({ embeds: [yourPointsEmbed]});
       }
 
-      const points = await db.get(`pointsTab_${user.id}`)
+      const points = await db.get(`pointsTab_${user.id}`);
         
       const yourPointsEmbed = new client.discord.MessageEmbed()
       .setTitle(`Tes points`)

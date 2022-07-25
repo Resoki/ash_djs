@@ -61,6 +61,19 @@ db.connect((err)=> {
 })*/
 
 
+client.on('ready', async() => {
+
+const { Database } = require("quickmongo");
+const db = new Database("mongodb://localhost:27017/quickmongo");
+
+  db.on("ready", () => {
+    console.log("Database connected!");
+});
+
+await db.connect()
+
+})
+
 process.on("uncaughtException", (err) => {
     console.log("Uncaught Exception: " + err);
 });
