@@ -1,23 +1,23 @@
 const db = require('quick.db');
 module.exports = {
-  name: "addpoints",
+  name: "removepoints",
   aliases: ["bdg"],
   category: "Utility",
-  description: "Ajouter des points à un membre",
-  usage: `**/addpoints <number>**`,
+  description: "Retirer des points à un membre",
+  usage: `**/removepoints <number>**`,
   ownerOnly: false,
   options: [
     {
         name: "user",
         description: "L'user'!",
         type: 6,
-        required: true
+        required: false
     },
     {
         name: "points",
         description: "Le nombre de Moon Coins que tu veux ajouter !",
         type: 10,
-        required: true
+        required: false
     }
 ],
   run: async (client, interaction, args) => {
@@ -30,14 +30,14 @@ module.exports = {
       const user = interaction.options.getUser("user");
       const pointsInte = interaction.options.getNumber("points");
 
-        await db.add(`pointsTab_${user.id}`, pointsInte);
+        await db.add(`pointsTab_${user.id}`, -pointsInte);
 
         const solde =  await db.get(`pointsTab_${user.id}`);
 
          const addPhraseEmbed = new client.discord.MessageEmbed()
          .setAuthor(`${interaction.member.user.username}#${interaction.member.user.discriminator}`, interaction.member.displayAvatarURL())
          .addField('Utilisateur', `<@${user.id}>`)
-         .addField('Quantité ajoutée', `**${pointsInte}**`, inline= true)
+         .addField('Quantité retirée', `**${pointsInte}**`, inline= true)
          .addField('Nouveau Solde', `**${solde}**`, inline = true)
          .setColor('59bfff')
          .setTimestamp()

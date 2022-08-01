@@ -36,7 +36,7 @@ module.exports = {
 
       }).then(()=> {
         tabLeaderboard.forEach(async(element, index)=> {
-          yourPointsEmbed.addField(`#${index+1}`, `<@${element.id}> - **${element.points} pts**`)
+          yourPointsEmbed.addField(`#${index+1}`, `<@${element.id}> - **${element.points} Moon Coins**`)
         })
       })
         setTimeout(async()=> {

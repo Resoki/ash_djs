@@ -24,7 +24,7 @@ module.exports = {
         
         const yourPointsEmbed = new client.discord.MessageEmbed()
         .setTitle(`Tes points`)
-        .setDescription(`<@${interaction.member.user.id}>, ${!points ? '**Pas de points !**' : `**${points} points**`}`)
+        .setDescription(`<@${interaction.member.user.id}>, ${!points ? '**Pas de points !**' : `**${points} Moon Coins**`}`)
         .setColor('59bfff')
         .setThumbnail(interaction.member.displayAvatarURL())
         .setTimestamp()
@@ -35,7 +35,7 @@ module.exports = {
         
       const yourPointsEmbed = new client.discord.MessageEmbed()
       .setTitle(`Tes points`)
-      .setDescription(`<@${user.id}>, ${!points ? '**Pas de points !**' : `**${points} points**`}`)
+      .setDescription(`<@${user.id}>, ${!points ? '**Pas de points !**' : `**${points} Moon Coins**`}`)
       .setColor('59bfff')
       .setThumbnail(user.displayAvatarURL())
       .setTimestamp()

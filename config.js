@@ -1,9 +1,9 @@
 module.exports = {
-  botClientID: "1001113380037341184", // client application id du bot (trouveable sur https://discord.com/developers/application)
+  botClientID: "847377325136805908", // client application id du bot (trouveable sur https://discord.com/developers/application)
   botPrefix: "!",
-  token: "ODQ3Mzc3MzI1MTM2ODA1OTA4.GGadJk.XjVlaMwuFvSXRGXgwmW-ysppVIq974DPRa0RW4",
+  token: "ODQ3Mzc3MzI1MTM2ODA1OTA4.Gonc4q.StDl_V_7YWdrxCiyC5BdL75teOtpvZpoNLctho",
   channelJoin:"960931567927164979",
-  guildID: "1001113010431078490", // id server
+  guildID: "965542937343692820", // id server
   ownerID: "923924088077053972", // id du proprietaire du serveur
   embedColor: "#00dbff",
   embedfooterText: "Ash 2022",

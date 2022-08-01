@@ -11,7 +11,7 @@ module.exports = {
         name: "phrase",
         description: "La phrase que tu veux enregistrer",
         type: 3,
-        required: false
+        required: true
     }
 ],
   run: async (client, interaction, args) => {
@@ -34,5 +34,5 @@ module.exports = {
     catch(err){
       return interaction.channel.send(`❌ | Une erreur a eu lieu **addphrase.js**:\n${err}`);
     }
-  },
+  },                                                 cffffffffffffff
 };
