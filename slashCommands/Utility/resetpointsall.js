@@ -23,7 +23,7 @@ module.exports = {
          .setColor('59bfff')
          .setTimestamp()
  
-        await interaction.reply({ embeds: [resetEmbed]});
+        return interaction.reply({ embeds: [resetEmbed]});
     }
     catch(err){
       return interaction.channel.send(`❌ | Une erreur a eu lieu **resetpoints.js**:\n${err}`);

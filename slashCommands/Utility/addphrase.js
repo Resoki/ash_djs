@@ -1,4 +1,6 @@
-const db = require('quick.db');
+const { QuickDB } = require('quick.db');
+const db = new QuickDB();
+
 module.exports = {
   name: "addphrase",
   aliases: ["bdg"],
@@ -16,6 +18,7 @@ module.exports = {
 ],
   run: async (client, interaction, args) => {
     try {
+      if(!interaction.isCommand()) return;
       const phrase = interaction.options.getString("phrase");
       const currentDate = new Date().toLocaleDateString();
       const addPhraseEmbed = new client.discord.MessageEmbed()
@@ -29,10 +32,10 @@ module.exports = {
         date: currentDate
       })
         
-      await interaction.reply({ embeds: [addPhraseEmbed]});
+      return interaction.reply({ embeds: [addPhraseEmbed]});
     }
     catch(err){
       return interaction.channel.send(`❌ | Une erreur a eu lieu **addphrase.js**:\n${err}`);
     }
-  },                                                 cffffffffffffff
+  },                                                 
 };

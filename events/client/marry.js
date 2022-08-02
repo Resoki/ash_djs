@@ -8,6 +8,7 @@ module.exports = {
         if(interaction.customId === 'marry-yes') {
           const userId = interaction.message.embeds[0].footer.text
           const marryNames = `<@${interaction.user.id}> & <@${userId}>`;
+          const channel = client.channels.cache.find((ch) => ch.id === global.channelMessages);
           
           const tab = await db.get('marryList');
           if(tab != null && tab.find((element) => element.name == marryNames)){
@@ -15,7 +16,7 @@ module.exports = {
           }
 
           const currentDate = new Date().toLocaleDateString();
-          console.log(interaction)
+ 
           const marryEmbed = new client.discord.MessageEmbed()
           .setTitle(`L'amour c'est magnifique !`)
           .setDescription(`Felicitation à <@${interaction.user.id}> & <@${userId}> pour leur union ! ${currentDate}`)
@@ -26,9 +27,10 @@ module.exports = {
           await db.push('marryList', {
             name: marryNames,
             date: currentDate
-          })
+          })  
+          await interaction.reply('Feliciation !')
           
-          return interaction.reply({ embeds: [marryEmbed]});
+          return channel.send({ embeds: [marryEmbed]});
         }
 
         if(interaction.customId === 'marry-no') {
@@ -39,7 +41,7 @@ module.exports = {
         }
           
       } catch (e) {
-          return console.log(e)
+          return console.log(e);
       }
   }
 }

@@ -1,4 +1,6 @@
-const db = require('quick.db');
+const { QuickDB } = require('quick.db');
+const db = new QuickDB();
+
 module.exports = {
   name: "addpoints",
   aliases: ["bdg"],
@@ -22,6 +24,7 @@ module.exports = {
 ],
   run: async (client, interaction, args) => {
     try {
+      if(!interaction.isCommand()) return;
       const permission = interaction.member.permissions.has(client.discord.Permissions.FLAGS.BAN_MEMBERS);
       
       if (!permission)
@@ -42,10 +45,10 @@ module.exports = {
          .setColor('59bfff')
          .setTimestamp()
  
-        await interaction.reply({ embeds: [addPhraseEmbed]});
+         return interaction.reply({ embeds: [addPhraseEmbed]});
     }
     catch(err){
-      return interaction.channel.send(`❌ | Une erreur a eu lieu **addpoints.js**:\n${err}`);
+      return interaction.channel.send(`❌ | Une erreur a eu lieu **addpoints.js**:\n${err}`, ephemeral= true);
     }
   },
 };

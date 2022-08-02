@@ -37,8 +37,22 @@ client.config = require('./config')
 handler.loadEvents(client);
 //handler.loadCommands(client);
 handler.loadSlashCommands(client);
+const mysql = require('mysql')
 
 
+const { QuickDB, MySQLDriver } = require('quick.db');
+(async () => {
+    const mysql = new MySQLDriver({
+        host:     'localhost',
+        user:     'root',
+        password: '',
+        database: 'my_db'
+    });
+
+    await mysql.connect();
+    // It is important to connect MySQL
+    const db = new QuickDB({ driver: mysql });
+})();
 //INITIALISE DATABASE
 /*const mysql = require('mysql');
 // MySQL

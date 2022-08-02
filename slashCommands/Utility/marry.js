@@ -1,4 +1,5 @@
-const db = require('quick.db')
+const { QuickDB } = require('quick.db');
+const db = new QuickDB();
 
 module.exports = {
   name: "marry",
@@ -12,7 +13,7 @@ module.exports = {
         name: "user",
         description: "L'user avec qui se marier",
         type: 6,
-        required: false
+        required: true
     }
 ],
   run: async (client, interaction, args) => {

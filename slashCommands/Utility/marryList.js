@@ -1,4 +1,6 @@
-const db = require('quick.db');
+const { QuickDB } = require('quick.db');
+const db = new QuickDB();
+
 module.exports = {
   name: "marrylist",
   aliases: ["bdg"],
@@ -24,7 +26,7 @@ module.exports = {
         })
     }
     catch(err){
-      return interaction.channel.send(`❌ | Une erreur a eu lieu **badge.js**:\n${err}`);
+      return interaction.channel.send(`❌ | Une erreur a eu lieu **marryList.js**:\n${err}`);
     }
   },
 };
