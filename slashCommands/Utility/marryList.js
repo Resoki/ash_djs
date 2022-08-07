@@ -29,7 +29,7 @@ module.exports = {
         .setDescription(`Les unions de <@${!user ? interaction.member.user.id : user.id}>`)
         .setColor('59bfff')
         .setTimestamp()
-        .setThumbnail(user.displayAvatarURL())
+        .setThumbnail(`${!user ? interaction.member.user.displayAvatarURL() : user.displayAvatarURL()}`)
 
         marryList.forEach(async(element, index) => {
             await marryEmbed.addField(`#${index+1}`, `${element.name}, ${element.date}`);
