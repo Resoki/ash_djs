@@ -18,10 +18,6 @@ module.exports = {
     run: async (client, interaction) => {
       try {
         let amount = interaction.options.getNumber('number');
-        const permission = interaction.member.permissions.has(Permissions.FLAGS.BAN_MEMBERS);
-      
-        if (!permission)
-          return interaction.reply(`❌ | Tu n'as pas la permission d'utiliser cette commande !`);
 
           if (!amount) return interaction.channel.send("Merci de preciser le nombre de message à supprimer !")
           if (amount > 100 || amount < 1) return interaction.channel.send("Merci de preciser un nombre compris entre 0 et 100 !")
