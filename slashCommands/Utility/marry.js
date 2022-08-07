@@ -13,7 +13,7 @@ module.exports = {
         name: "user",
         description: "L'user avec qui se marier",
         type: 6,
-        required: true
+        required: false
     }
 ],
   run: async (client, interaction, args) => {
