@@ -6,17 +6,30 @@ module.exports = {
   aliases: ["bdg"],
   category: "Utility",
   description: "Voir la liste des mariages",
-  usage: `**/marrylist**`,
+  usage: `**/marrylist <user>**`,
   ownerOnly: false,
+  options: [
+    {
+        name: "user",
+        description: "L'user avec qui se marier",
+        type: 6,
+        required: false
+    }
+],
   run: async (client, interaction, args) => {
     try {
-      const marryList = await db.get('marryList')
-      if(!marryList) return interaction.reply(`Il n'y a pas de marié(e) sur le serveur !`)
+      const user = interaction.options.getUser('user');
+      const UserId = !user ? interaction.member.user.id : user.id
+      const marryList = await db.get(`marryList_${UserId}`)
+      
+      if(marryList === null || marryList.length === 0) return interaction.reply(`<@${UserId}> n'est pas marié !`)
 
         const marryEmbed = new client.discord.MessageEmbed()
         .setTitle(`Info !`)
-        .setDescription(`La liste des unions au sein du serveur`)
+        .setDescription(`Les unions de <@${!user ? interaction.member.user.id : user.id}>`)
         .setColor('59bfff')
+        .setTimestamp()
+        .setThumbnail(user.displayAvatarURL())
 
         marryList.forEach(async(element, index) => {
             await marryEmbed.addField(`#${index+1}`, `${element.name}, ${element.date}`);
@@ -26,6 +39,7 @@ module.exports = {
         })
     }
     catch(err){
+      console.log(err)
       return interaction.channel.send(`❌ | Une erreur a eu lieu **marryList.js**:\n${err}`);
     }
   },

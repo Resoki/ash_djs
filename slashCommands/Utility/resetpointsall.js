@@ -1,4 +1,5 @@
-const db = require('quick.db');
+const { QuickDB } = require('quick.db');
+const db = new QuickDB();
 module.exports = {
   name: "resetpointsall",
   aliases: ["bdg"],
@@ -9,9 +10,8 @@ module.exports = {
   run: async (client, interaction, args) => {
     try {
       const permission = interaction.member.permissions.has(client.discord.Permissions.FLAGS.BAN_MEMBERS);
-      
       if (!permission)
-        return interaction.reply(`❌ | Tu n'as pas la permission d'utiliser cette commande !`);
+      return interaction.reply({content:`❌ | Tu n'as pas la permission d'utiliser cette commande !`, ephemeral: true});
 
         let money = db.all()
         .map(entry => entry.ID)

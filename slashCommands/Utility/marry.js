@@ -20,13 +20,13 @@ module.exports = {
     try {
       const user = interaction.options.getUser("user");
       if(!user) return interaction.reply('Tu dois préciser un membre !');
-      /*if(user.id === interaction.member.user.id){
-        return interaction.reply(`Tu ne peux pas te marier avec toi même !`)
-      }*/
+      if(user.id === interaction.member.user.id){
+        return interaction.reply({content:`**Tu ne peux pas te marier avec toi même !**`, ephemeral: true});
+      }
       const marryNames = `<@${interaction.member.user.id}> & <@${user.id}>`
-      const tab = await db.get('marryList');
+      const tab = await db.get(`marryList_${interaction.member.user.id}`);
       if(tab != null && tab.find((element) => element.name == marryNames)){
-        return interaction.reply(`Tu es déjà marié avec cette personne !`);
+        return interaction.reply({content:`Tu es déjà marié avec cette personne !**`, ephemeral: true});
       }
 
       const marryEmbed = new client.discord.MessageEmbed()
@@ -36,7 +36,7 @@ module.exports = {
       epouser **${interaction.member.user.username}**`)
       .setColor('59bfff')
       .setThumbnail('https://static.vecteezy.com/system/resources/previews/001/187/712/non_2x/heart-just-married-png.png')
-      .setFooter({ text: `${user.id}`, iconURL: `${user.displayAvatarURL()}` });
+      .setFooter({ text: `${interaction.member.user.id}`, iconURL: `${user.displayAvatarURL()}` });
 
       const row = new client.discord.MessageActionRow()
       .addComponents(

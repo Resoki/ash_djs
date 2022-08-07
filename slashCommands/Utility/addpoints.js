@@ -11,7 +11,7 @@ module.exports = {
   options: [
     {
         name: "user",
-        description: "L'user'!",
+        description: "L'user à qui ajouter des points",
         type: 6,
         required: true
     },
@@ -28,7 +28,7 @@ module.exports = {
       const permission = interaction.member.permissions.has(client.discord.Permissions.FLAGS.BAN_MEMBERS);
       
       if (!permission)
-        return interaction.reply(`❌ | Tu n'as pas la permission d'utiliser cette commande !`);
+        return interaction.reply({content:`❌ | Tu n'as pas la permission d'utiliser cette commande !`, ephemeral: true});
 
       const user = interaction.options.getUser("user");
       const pointsInte = interaction.options.getNumber("points");

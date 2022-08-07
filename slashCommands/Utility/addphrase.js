@@ -19,6 +19,10 @@ module.exports = {
   run: async (client, interaction, args) => {
     try {
       if(!interaction.isCommand()) return;
+      const permission = interaction.member.permissions.has(client.discord.Permissions.FLAGS.BAN_MEMBERS);
+      if (!permission)
+      return interaction.reply({content:`❌ | Tu n'as pas la permission d'utiliser cette commande !`, ephemeral: true});
+
       const phrase = interaction.options.getString("phrase");
       const currentDate = new Date().toLocaleDateString();
       const addPhraseEmbed = new client.discord.MessageEmbed()

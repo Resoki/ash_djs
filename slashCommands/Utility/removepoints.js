@@ -1,4 +1,5 @@
-const db = require('quick.db');
+const { QuickDB } = require('quick.db');
+const db = new QuickDB();
 module.exports = {
   name: "removepoints",
   aliases: ["bdg"],
@@ -9,13 +10,13 @@ module.exports = {
   options: [
     {
         name: "user",
-        description: "L'user'!",
+        description: "L'user à qui retirer des points",
         type: 6,
         required: false
     },
     {
         name: "points",
-        description: "Le nombre de Moon Coins que tu veux ajouter !",
+        description: "Le nombre de Moon Coins que tu veux retirer !",
         type: 10,
         required: false
     }
@@ -23,9 +24,8 @@ module.exports = {
   run: async (client, interaction, args) => {
     try {
       const permission = interaction.member.permissions.has(client.discord.Permissions.FLAGS.BAN_MEMBERS);
-      
       if (!permission)
-        return interaction.reply(`❌ | Tu n'as pas la permission d'utiliser cette commande !`);
+      return interaction.reply({content:`❌ | Tu n'as pas la permission d'utiliser cette commande !`, ephemeral: true});
 
       const user = interaction.options.getUser("user");
       const pointsInte = interaction.options.getNumber("points");
