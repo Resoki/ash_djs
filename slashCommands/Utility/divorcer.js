@@ -18,10 +18,10 @@ module.exports = {
 ],
   run: async (client, interaction, args) => {
     try {
-      if(user.id === interaction.member.user.id){
-        return interaction.reply({content: `Tu ne peux pas te marier avec toi même !`, ephemeral: true})
-      }
       const user = interaction.options.getUser('user')
+  //if(user.id === interaction.member.user.id){
+    //    return interaction.reply({content: `Tu ne peux pas te marier avec toi même !`, ephemeral: true})
+ //     }
       const tabInteractionMember = await db.get(`marryList_${interaction.member.user.id}`);
       console.log(tabInteractionMember)
       const tabUser = await db.get(`marryList_${user.id}`);
