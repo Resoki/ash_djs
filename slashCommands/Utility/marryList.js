@@ -11,7 +11,7 @@ module.exports = {
   options: [
     {
         name: "user",
-        description: "L'user avec qui se marier",
+        description: "L'user que vous souhaitez voir",
         type: 6,
         required: false
     }
