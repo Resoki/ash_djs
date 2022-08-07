@@ -1,5 +1,5 @@
 module.exports = {
-  botClientID: "1001114437849206796", // client application id du bot (trouveable sur https://discord.com/developers/application)
+  botClientID: "1001113380037341184", // client application id du bot (trouveable sur https://discord.com/developers/application)
   botPrefix: "!",
   token: "MTAwMTExMzM4MDAzNzM0MTE4NA.GGrEn9.G1LuOkhD0dlEhkN_2aTfuaHsBBFIx7K9SUZYUg",
   channelJoin:"960931567927164979",
