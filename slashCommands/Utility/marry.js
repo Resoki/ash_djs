@@ -20,9 +20,9 @@ module.exports = {
     try {
       const user = interaction.options.getUser("user");
       if(!user) return interaction.reply('Tu dois préciser un membre !');
-      if(user.id === interaction.member.user.id){
-        return interaction.reply({content:`**Tu ne peux pas te marier avec toi même !**`, ephemeral: true});
-      }
+      //if(user.id === interaction.member.user.id){
+      //  return interaction.reply({content:`**Tu ne peux pas te marier avec toi même !**`, ephemeral: true});
+   //   }
       const marryNames = `<@${interaction.member.user.id}> & <@${user.id}>`
       const tab = await db.get(`marryList_${interaction.member.user.id}`);
       if(tab != null && tab.find((element) => element.name == marryNames)){
