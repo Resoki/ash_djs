@@ -13,7 +13,7 @@ module.exports = {
       if (permission) return interaction.reply({content:`❌ | Tu n'as pas la permission d'utiliser cette commande !`, ephemeral: true});
 
         let money = db.all()
-        console.log(money)
+        console.log(await money)
 
         if(!money) return interaction.reply('Pas de points à reset');
 
