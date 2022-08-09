@@ -10,7 +10,7 @@ module.exports = {
   run: async (client, interaction, args) => {
     try {
       const permission = interaction.member.permissions.has(client.discord.Permissions.FLAGS.BAN_MEMBERS);
-      if (!permission) return interaction.reply({content:`❌ | Tu n'as pas la permission d'utiliser cette commande !`, ephemeral: true});
+      if (permission) return interaction.reply({content:`❌ | Tu n'as pas la permission d'utiliser cette commande !`, ephemeral: true});
 
         let money = db.all()
         console.log(money)
