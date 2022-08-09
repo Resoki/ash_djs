@@ -13,7 +13,10 @@ module.exports = {
       if (!permission) return interaction.reply({content:`❌ | Tu n'as pas la permission d'utiliser cette commande !`, ephemeral: true});
 
         let money = db.all()
-        .map(entry => entry.ID)
+
+        if(!money) return;
+        
+         money.map(entry => entry.ID)
         .filter(id => id.startsWith(`pointsTab_`))
          money.forEach(db.delete)
 

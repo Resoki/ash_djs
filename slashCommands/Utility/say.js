@@ -17,7 +17,7 @@ module.exports = {
   run: async (client, interaction, args) => {
     try {
      const word = interaction.options.getString('word');
-    return interaction.channel.send(word);
+    return interaction.reply(word);
     }
     catch(err){
       return interaction.channel.send(`❌ | Une erreur a eu lieu **say.js**:\n${err}`);
