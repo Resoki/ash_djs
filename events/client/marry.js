@@ -1,5 +1,5 @@
 const { QuickDB } = require('quick.db');
-const db = new QuickDB();
+const db = new QuickDB({ filePath: 'db/data.sqlite' });
 
 const global = require('../../config')
 module.exports = {
@@ -54,7 +54,8 @@ module.exports = {
           .setColor('RED')
 
           member.send(`<@${interaction.user.id}> vient de refuser ta demande !`);
-          return channel.send({ embeds: [refuseEmbed]});
+          await channel.send({ embeds: [refuseEmbed]});
+          return interaction.message.delete();
         }
           
       } catch (e) {

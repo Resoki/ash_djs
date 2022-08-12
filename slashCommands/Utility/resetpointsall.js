@@ -25,7 +25,7 @@ module.exports = {
          const resetEmbed = new client.discord.MessageEmbed()
          .addField('Quantité reset pour tout le monde', `REUSSI - ✅`, inline= true)
          .setColor('59bfff')
-         .setTimestamp()
+         .setTimestamp();
  
         return interaction.reply({ embeds: [resetEmbed]});
     }
