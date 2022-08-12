@@ -27,7 +27,7 @@ module.exports = {
       if(!interaction.isCommand()) return;
       const permission = interaction.member.permissions.has(client.discord.Permissions.FLAGS.BAN_MEMBERS);
       
-      if (permission)
+      if (!permission)
         return interaction.reply({content:`❌ | Tu n'as pas la permission d'utiliser cette commande !`, ephemeral: true});
 
       const user = interaction.options.getUser("user");
