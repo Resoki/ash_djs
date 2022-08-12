@@ -1,6 +1,5 @@
 const { QuickDB } = require('quick.db');
-const db = new QuickDB({ filePath: '../../db/data' });
-
+const db = new QuickDB({ filePath: 'db/data.sqlite' });
 module.exports = {
   name: "marrylist",
   aliases: ["bdg"],
