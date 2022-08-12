@@ -33,7 +33,7 @@ module.exports = {
       const user = interaction.options.getUser("user");
       const pointsInte = interaction.options.getNumber("points");
 
-        await db.add(`pointsTab_${user.id}`, pointsInte);
+      await db.add(`pointsTab_${user.id}`, pointsInte);
 
         const solde =  await db.get(`pointsTab_${user.id}`);
 
