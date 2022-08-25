@@ -15,7 +15,7 @@
     "chalk": "^4.1.0",
     "discord-badges": "^0.0.0",
     "discord-giveaways": "^5.1.1",
-    "discord.js": "^13.3.1",
+    "discord.js": "^13.9.2",
     "dotenv": "^10.0.0",
     "fs": "^0.0.1-security",
     "glob": "^7.2.0",
