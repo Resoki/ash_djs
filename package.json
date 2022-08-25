@@ -10,7 +10,7 @@
   "keywords": [],
   "license": "ISC",
   "dependencies": {
-    "@discordjs/rest": "^0.4.1",
+    "@discordjs/rest": "^0.6.0",
     "axios": "^0.27.2",
     "chalk": "^4.1.0",
     "discord-badges": "^0.0.0",
