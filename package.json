@@ -11,7 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "@discordjs/rest": "^0.4.1",
-    "axios": "^0.27.2",
+    "axios": "^1.6.0",
     "chalk": "^4.1.0",
     "discord-badges": "^0.0.0",
     "discord-giveaways": "^5.1.1",
